@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0d3b66" />
+  <title>Online Islamic Bookstore</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+  
+<!-- Navbar -->
+<header class="bg-black/80 backdrop-blur-sm text-white fixed top-0 left-0 w-full z-50 shadow-md h-[100px]">
+  <div class="container mx-auto flex items-center justify-between px-6 h-full">
+    <a href="/index.html" class="flex items-center ml-5">
+      <img src="/kitobhoi-boqizoda-logo.png" alt="Kitobhoi Boqizoda Logo" class="h-[80px] sm:h-[90px] md:h-[100px] w-auto object-contain" />
+    </a>    
+    <div class="hidden md:flex gap-8 items-center text-lg font-medium">
+      <a href="/index.html" class="hover:text-yellow-400 transition">Home</a>
+      <a href="/index.html#categories" class="hover:text-yellow-400 transition">Categories</a>
+      <a href="/books.html" class="hover:text-yellow-400 transition">Books</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <input type="text" placeholder="Search..." class="hidden md:block px-3 py-2 rounded-md border border-gray-500 text-black w-52" />
+      <button class="hidden md:block bg-yellow-400 text-black px-4 py-2 font-semibold rounded hover:bg-yellow-500 transition">Search</button>
+      <a href="/pages/login.html" class="border border-white px-4 py-2 rounded hover:bg-white hover:text-black transition font-medium">Login</a>
+    </div>
+  </div>
+</header>
+
+<!-- Hero Section -->
+<section class="h-screen bg-cover bg-center bg-no-repeat bg-fixed text-white px-4 flex items-center justify-center" style="background-image: url('/yuz-ayub-rsBcEurM-7M-unsplash.jpg');">
+  <div class="flex flex-col lg:flex-row gap-[200px] justify-center items-center">
+    <!-- Carousel -->
+    <div class="w-[400px] h-[250px] bg-black/40 p-3 rounded-lg shadow-xl flex items-center justify-center">
+      <div class="carousel relative w-full h-full rounded-lg overflow-hidden">
+        <div class="carousel-slide absolute inset-0 transition-opacity duration-1000 opacity-100">
+          <img src="/abdullah-arif-Dxi6KbpvUgA-unsplash.jpg" alt="Book 1" class="w-full h-full object-contain rounded-md" />
+        </div>
+        <div class="carousel-slide absolute inset-0 transition-opacity duration-1000 opacity-0">
+          <img src="/masjid-maba-9T_MVYo0TqM-unsplash.jpg" alt="Book 2" class="w-full h-full object-contain rounded-md" />
+        </div>
+        <div class="carousel-slide absolute inset-0 transition-opacity duration-1000 opacity-0">
+          <img src="/masjid-maba-D7dD_-C5eaI-unsplash.jpg" alt="Book 3" class="w-full h-full object-contain rounded-md" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Nav Box -->
+    <div class="w-[400px] h-[250px] bg-black/60 text-white p-5 rounded-xl shadow-md flex flex-col justify-center items-center border border-white/20 ring-1 ring-white/10 text-center space-y-4">
+      <h2 class="text-4xl font-bold text-yellow-300 font-serif drop-shadow-md">ٱلسَّلَامُ عَلَيْكُمْ</h2>
+      <p class="text-base text-white/90 px-2 leading-relaxed font-medium">
+        A free Islamic library offering timeless knowledge for every heart and mind.
+      </p>
+      <div class="flex gap-[40px] mt-auto">
+        <a href="#categories" class="border border-white px-4 py-2 rounded hover:bg-white hover:text-black transition font-medium">Browse</a>
+        <a href="/books.html" class="border border-white px-4 py-2 rounded hover:bg-white hover:text-black transition font-medium">Books</a>
+      </div>
+    </div>
+    
+    </div>
+  </div>
+</section>
+
+<!-- Animated Heading Section -->
+<section class="bg-[#44254c] py-20 text-white text-center">
+  <div class="max-w-4xl mx-auto px-6">
+    <h1 class="ml5 text-6xl md:text-7xl font-bold leading-tight">
+      <span class="text-wrapper">
+        <span class="line line1"></span>
+        <span class="letters letters-left">Kitobhoi</span>
+        <span class="ampersand">Boqizoda</span>
+        <span class="line line2"></span>
+      </span>
+    </h1>
+    <p class="text-xl md:text-2xl mt-10 leading-relaxed text-orange-100 space-y-2">
+      <span class="block">A free digital Islamic library for every seeker of knowledge.</span>
+      <span class="block">Read, grow, and enlighten your soul through timeless wisdom.</span>
+    </p>
+  </div>
+</section>
+
+
+
+
+<section id="categories" class="py-16 bg-[#44254c] text-white">
+  <h2 class="text-3xl font-extrabold text-center mb-10 text-black bg-[#bce954] p-5">Featured Books</h2>
+
+  <div class="swiper mySwiper max-w-6xl mx-auto px-6">
+    <div class="swiper-wrapper">
+
+      <!-- SLIDE TEMPLATE -->
+      <div class="swiper-slide">
+        <div class="bg-white/90 backdrop-blur-md p-5 rounded-xl shadow-lg hover:shadow-2xl transition max-w-xs mx-auto border border-gray-200">
+          <img src="https://via.placeholder.com/300x200" alt="Qur'an" class="rounded-md w-full h-48 object-cover opacity-90" />
+          <h3 class="text-xl font-semibold mt-4 text-gray-800">Qur'an and Tafsir</h3>
+          <p class="mt-2 text-sm text-gray-600">Translations and Tafsir insights into the Holy Qur'an.</p>
+          <button class="group mt-4 w-full bg-black py-2 rounded relative overflow-hidden transition">
+            <span class="absolute inset-0 transition duration-300 rounded"></span>
+            <span class="relative z-10 text-white font-semibold transition duration-300">Download</span>
+          </button>
+          
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <div class="bg-white/90 backdrop-blur-md p-5 rounded-xl shadow-lg hover:shadow-2xl transition max-w-xs mx-auto border border-gray-200">
+          <img src="https://via.placeholder.com/300x200" alt="Hadith" class="rounded-md w-full h-48 object-cover" />
+          <h3 class="text-xl font-semibold mt-4 text-gray-800">Hadith Collections</h3>
+          <p class="mt-2 text-sm text-gray-600">Teachings of Prophet Muhammad (ﷺ) from Sahih sources.</p>
+          <button class="group mt-4 w-full bg-black py-2 rounded relative overflow-hidden transition">
+            <span class="absolute inset-0 transition duration-300 rounded"></span>
+            <span class="relative z-10 text-white font-semibold transition duration-300">Download</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <div class="bg-white/90 backdrop-blur-md p-5 rounded-xl shadow-lg hover:shadow-2xl transition max-w-xs mx-auto border border-gray-200">
+          <img src="https://via.placeholder.com/300x200" alt="Islamic History" class="rounded-md w-full h-48 object-cover" />
+          <h3 class="text-xl font-semibold mt-4 text-gray-800">Islamic History</h3>
+          <p class="mt-2 text-sm text-gray-600">Learn about the lives of prophets, scholars, and the ummah.</p>
+          <button class="group mt-4 w-full bg-black py-2 rounded relative overflow-hidden transition">
+            <span class="absolute inset-0 transition duration-300 rounded"></span>
+            <span class="relative z-10 text-white font-semibold transition duration-300">Download</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <div class="bg-white/90 backdrop-blur-md p-5 rounded-xl shadow-lg hover:shadow-2xl transition max-w-xs mx-auto border border-gray-200">
+          <img src="https://via.placeholder.com/300x200" alt="Islamic Stories" class="rounded-md w-full h-48 object-cover" />
+          <h3 class="text-xl font-semibold mt-4 text-gray-800">Islamic Stories</h3>
+          <p class="mt-2 text-sm text-gray-600">Beautiful and inspiring Islamic stories for all ages.</p>
+          <button class="group mt-4 w-full bg-black py-2 rounded relative overflow-hidden transition">
+            <span class="absolute inset-0 transition duration-300 rounded"></span>
+            <span class="relative z-10 text-white font-semibold transition duration-300">Download</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <div class="bg-white/90 backdrop-blur-md p-5 rounded-xl shadow-lg hover:shadow-2xl transition max-w-xs mx-auto border border-gray-200">
+          <img src="https://via.placeholder.com/300x200" alt="Children's Books" class="rounded-md w-full h-48 object-cover" />
+          <h3 class="text-xl font-semibold mt-4 text-gray-800">Children's Books</h3>
+          <p class="mt-2 text-sm text-gray-600">Interactive and fun learning materials for young minds.</p>
+          <button class="group mt-4 w-full bg-black py-2 rounded relative overflow-hidden transition">
+            <span class="absolute inset-0 transition duration-300 rounded"></span>
+            <span class="relative z-10 text-white font-semibold transition duration-300">Download</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <div class="bg-white/90 backdrop-blur-md p-5 rounded-xl shadow-lg hover:shadow-2xl transition max-w-xs mx-auto border border-gray-200">
+          <img src="https://via.placeholder.com/300x200" alt="Spiritual Growth" class="rounded-md w-full h-48 object-cover" />
+          <h3 class="text-xl font-semibold mt-4 text-gray-800">Spiritual Growth</h3>
+          <p class="mt-2 text-sm text-gray-600">Books on self-purification, character development, and more.</p>
+          <button class="group mt-4 w-full bg-black py-2 rounded relative overflow-hidden transition">
+            <span class="absolute inset-0 transition duration-300 rounded"></span>
+            <span class="relative z-10 text-white font-semibold transition duration-300">Download</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Swiper Navigation (moved down) -->
+    <div class="flex justify-center gap-6 mt-6">
+      <div class="swiper-button-prev text-white"></div>
+      <div class="swiper-button-next text-white"></div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- Footer -->
+<footer class="bg-[#1e2a38] text-white py-10 px-6">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+
+    <!-- Left: Logo + Links -->
+    <div class="flex flex-col items-center md:items-start">
+      <!-- Larger Logo -->
+      <a href="#" class="flex items-center gap-3 mb-4">
+        <img src="/kitobhoi-boqizoda-logo.png" alt="Logo" class="h-20 w-auto" />
+      </a>
+
+      <!-- Navigation Links -->
+      <div class="flex flex-wrap justify-center md:justify-start gap-x-4 gap-y-2 text-sm text-gray-300">
+        <a href="#" class="hover:text-white font-medium">About Us</a>
+        <span>|</span>
+        <a href="#" class="hover:text-white font-medium">Privacy</a>
+        <span>|</span>
+        <a href="#" class="hover:text-white font-medium">Advanced Search</a>
+        <span>|</span>
+        <a href="#" class="hover:text-white font-medium">Contact</a>
+        <span>|</span>
+        <a href="#" class="hover:text-white font-medium">Library</a>
+      </div>
+
+      <!-- Copyright -->
+      <p class="text-xs text-gray-400 mt-4">© 2025 Kitobhoi Boqizoda. All rights reserved.</p>
+    </div>
+
+    <!-- Right: Social Icons + Payment -->
+    <div class="flex flex-col items-center gap-6">
+      <!-- Social Icons -->
+      <div class="flex gap-4">
+        <!-- Instagram -->
+        <a href="https://instagram.com" target="_blank" class="border border-[#E4405F] rounded-full p-2 transition" title="Instagram">
+          <i data-lucide="instagram" class="h-6 w-6 text-[#E4405F]"></i>
+        </a>
+        <!-- Twitter -->
+        <a href="https://twitter.com" target="_blank" class="border border-[#1DA1F2] rounded-full p-2 transition" title="Twitter">
+          <i data-lucide="twitter" class="h-6 w-6 text-[#1DA1F2]"></i>
+        </a>
+      </div>
+
+      <!-- Payment Icons -->
+      <div class="flex gap-3">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" class="h-6" alt="Visa" />
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png" class="h-6" alt="Mastercard" />
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+
+
+<!-- Newsletter Form Logic -->
+<script>
+  document.getElementById('subscribe-form')?.addEventListener('submit', function(e) {
+    e.preventDefault();
+    document.getElementById('subscribe-message')?.classList.remove('hidden');
+    this.reset();
+  });
+</script>
+
+<!-- Carousel Auto Slide -->
+<script>
+  const slides = document.querySelectorAll('.carousel-slide');
+  let index = 0;
+  setInterval(() => {
+    slides.forEach((slide, i) => {
+      slide.style.opacity = i === index ? '1' : '0';
+    });
+    index = (index + 1) % slides.length;
+  }, 3000);
+</script>
+
+<!-- GSAP Text Animations -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script>
+  function animateHeading() {
+    gsap.set(".reveal-letter", {
+      opacity: 0,
+      x: () => gsap.utils.random(-50, 50),
+      y: () => gsap.utils.random(-50, 50),
+      rotate: () => gsap.utils.random(-30, 30)
+    });
+
+    gsap.to(".reveal-letter", {
+      opacity: 1,
+      x: 0,
+      y: 0,
+      rotate: 0,
+      duration: 0.8,
+      ease: "power3.out",
+      stagger: {
+        amount: 1,
+        grid: "auto",
+        from: "random"
+      }
+    });
+  }
+
+  animateHeading();
+  setInterval(animateHeading, 10000);
+
+  gsap.from(".line-from-left", {
+    x: -200,
+    opacity: 0,
+    duration: 1.2,
+    ease: "power3.out",
+    delay: 0.5
+  });
+
+  gsap.from(".line-from-right", {
+    x: 200,
+    opacity: 0,
+    duration: 1.2,
+    ease: "power3.out",
+    delay: 0.8
+  });
+</script>
+
+<!-- Swiper JS -->
+<script>
+  const swiper = new Swiper('.mySwiper', {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    loop: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev'
+    },
+    breakpoints: {
+      640: { slidesPerView: 1 },
+      768: { slidesPerView: 2 },
+      1024: { slidesPerView: 3 }
+    }
+  });
+</script>
+
+<!-- Ripple Button Effect -->
+<style>
+  .ripple::after {
+    content: '';
+    position: absolute;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    transform: scale(0);
+    animation: ripple 0.6s linear;
+    pointer-events: none;
+  }
+
+  .ripple:active::after {
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    transform: translate(-50%, -50%);
+  }
+
+  @keyframes ripple {
+    to {
+      transform: translate(-50%, -50%) scale(4);
+      opacity: 0;
+    }
+  }
+
+  #cursor {
+    animation: blink 1s infinite;
+    font-weight: bold;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+<script>
+anime.timeline({ loop: true })
+  .add({
+    targets: '.ml5 .line',
+    opacity: [0.5, 1],
+    scaleX: [0, 1],
+    easing: "easeInOutExpo",
+    duration: 700
+  }).add({
+    targets: '.ml5 .line',
+    duration: 600,
+    easing: "easeOutExpo",
+    translateY: (el, i) => (-0.625 + 0.625 * 2 * i) + "em"
+  }).add({
+    targets: '.ml5 .ampersand',
+    opacity: [0, 1],
+    scaleY: [0.5, 1],
+    easing: "easeOutExpo",
+    duration: 600,
+    offset: '-=600'
+  }).add({
+    targets: '.ml5 .letters-left',
+    opacity: [0, 1],
+    translateX: ["0.5em", 0],
+    easing: "easeOutExpo",
+    duration: 600,
+    offset: '-=300'
+  }).add({
+    targets: '.ml5 .letters-right',
+    opacity: [0, 1],
+    translateX: ["-0.5em", 0],
+    easing: "easeOutExpo",
+    duration: 600,
+    offset: '-=600'
+  }).add({
+    targets: '.ml5',
+    opacity: 0,
+    duration: 1000,
+    easing: "easeOutExpo",
+    delay: 1000
+  });
+</script>
+
+<script>
+  lucide.createIcons();
+</script>
+
+</body>
+</html>

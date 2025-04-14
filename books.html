@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Books | Kitobhoi Boqizoda</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#44250c] text-white font-sans">
+
+<!-- Navbar -->
+<header class="bg-black/80 backdrop-blur-sm text-white fixed top-0 left-0 w-full z-50 shadow-md h-[100px]">
+  <div class="container mx-auto flex items-center justify-between px-6 h-full">
+    <a href="/index.html" class="flex items-center ml-5">
+      <img src="/kitobhoi-boqizoda-logo.png" alt="Kitobhoi Boqizoda Logo" class="h-[80px] sm:h-[90px] md:h-[100px] w-auto object-contain" />
+    </a>    
+    <div class="hidden md:flex gap-8 items-center text-lg font-medium">
+      <a href="/index.html" class="hover:text-yellow-400 transition">Home</a>
+      <a href="/index.html#categories" class="hover:text-yellow-400 transition">Categories</a>
+      <a href="/books.html" class="hover:text-yellow-400 transition">Books</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <input type="text" placeholder="Search..." class="hidden md:block px-3 py-2 rounded-md border border-gray-500 text-black w-52" />
+      <button class="hidden md:block bg-yellow-400 text-black px-4 py-2 font-semibold rounded hover:bg-yellow-500 transition">Search</button>
+      <a href="/pages/login.html" class="border border-white px-4 py-2 rounded hover:bg-white hover:text-black transition font-medium">Login</a>
+    </div>
+  </div>
+</header>
+
+<!-- Main Content -->
+<main class="pt-[120px] pb-20 px-6 bg-[#EDF4F2] text-white">
+  <div class="text-center mb-12">
+    <h1 class="text-5xl font-extrabold drop-shadow-md tracking-wide text-black">Our Book Collection</h1>
+    <p class="mt-3 text-lg text-black">Explore spiritual wisdom, stories, and learning for every soul</p>
+  </div>
+
+  <!-- Filters -->
+  <div class="max-w-6xl mx-auto mb-10 flex flex-col lg:flex-row items-center justify-between gap-4">
+    <select id="categoryFilter" class="px-4 py-2 border border-yellow-400 bg-white text-black rounded-md shadow-sm focus:ring focus:ring-yellow-400 w-full lg:w-auto">
+      <option selected>All Categories</option>
+      <option>Qur'an</option>
+      <option>Hadith</option>
+      <option>Children</option>
+      <option>History</option>
+    </select>
+
+    <div class="w-full lg:w-1/2 relative">
+      <input type="text" id="bookSearch" placeholder="Search by name..." class="w-full px-4 py-2 rounded-md border border-yellow-400 text-black focus:outline-none focus:ring focus:ring-yellow-400">
+      <ul id="searchSuggestions" class="absolute left-0 right-0 top-full bg-white text-black shadow-md rounded-md mt-1 z-10 hidden max-h-40 overflow-y-auto"></ul>
+    </div>
+  </div>
+
+  <!-- Book Grid -->
+  <div id="bookGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"></div>
+
+  <!-- Pagination -->
+  <div class="pagination flex justify-center mt-12 space-x-3"></div>
+</main>
+
+<!-- Modal -->
+<div id="previewModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 hidden">
+  <div class="bg-white text-black p-6 rounded-xl max-w-md w-full relative shadow-xl">
+    <button onclick="closeModal()" class="absolute top-3 right-4 text-gray-500 hover:text-black text-xl">&times;</button>
+    <img id="modalBookImage" src="" alt="Book Image" class="rounded-lg w-full h-48 object-cover mb-4">
+    <h2 id="modalBookTitle" class="text-xl font-bold mb-2">Book Title</h2>
+    <p id="modalBookCategory" class="text-sm text-gray-600 mb-1">Category</p>
+    <p id="modalBookDownloads" class="text-sm text-gray-600 mb-1">Downloads</p>
+    <p id="modalBookRating" class="text-sm text-gray-600 mb-4">Rating</p>
+    <div class="text-right">
+      <button onclick="closeModal()" class="px-4 py-2 bg-yellow-500 text-black rounded hover:bg-yellow-600">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-[#1e2a38] text-white py-10 px-6">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+
+    <!-- Left: Logo + Links -->
+    <div class="flex flex-col items-center md:items-start">
+      <!-- Larger Logo -->
+      <a href="#" class="flex items-center gap-3 mb-4">
+        <img src="/kitobhoi-boqizoda-logo.png" alt="Logo" class="h-20 w-auto" />
+      </a>
+
+      <!-- Navigation Links -->
+      <div class="flex flex-wrap justify-center md:justify-start gap-x-4 gap-y-2 text-sm text-gray-300">
+        <a href="#" class="hover:text-white font-medium">About Us</a>
+        <span>|</span>
+        <a href="#" class="hover:text-white font-medium">Privacy</a>
+        <span>|</span>
+        <a href="#" class="hover:text-white font-medium">Advanced Search</a>
+        <span>|</span>
+        <a href="#" class="hover:text-white font-medium">Orders & Returns</a>
+        <span>|</span>
+        <a href="#" class="hover:text-white font-medium">Terms</a>
+        <span>|</span>
+        <a href="#" class="hover:text-white font-medium">Refund</a>
+        <span>|</span>
+        <a href="#" class="hover:text-white font-medium">Contact</a>
+        <span>|</span>
+        <a href="#" class="hover:text-white font-medium">Library</a>
+      </div>
+
+      <!-- Copyright -->
+      <p class="text-xs text-gray-400 mt-4">© 2025 Kitobhoi Boqizoda. All rights reserved.</p>
+    </div>
+
+    <!-- Right: Social Icons + Payment -->
+    <div class="flex flex-col items-center gap-6">
+      <!-- Social Icons -->
+      <div class="flex gap-4">
+        <!-- Instagram -->
+        <a href="https://instagram.com" target="_blank" class="border border-[#E4405F] rounded-full p-2 transition" title="Instagram">
+          <i data-lucide="instagram" class="h-6 w-6 text-[#E4405F]"></i>
+        </a>
+        <!-- Twitter -->
+        <a href="https://twitter.com" target="_blank" class="border border-[#1DA1F2] rounded-full p-2 transition" title="Twitter">
+          <i data-lucide="twitter" class="h-6 w-6 text-[#1DA1F2]"></i>
+        </a>
+      </div>
+
+      <!-- Payment Icons -->
+      <div class="flex gap-3">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" class="h-6" alt="Visa" />
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png" class="h-6" alt="Mastercard" />
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+
+<!-- Script Section -->
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>lucide.createIcons();</script>
+<script>
+  const books = [
+    { title: "The Qur'an Explained", category: "Qur'an", downloads: 124, rating: 4.6, image: "https://via.placeholder.com/300x200" },
+    { title: "Tafsir Made Easy", category: "Qur'an", downloads: 85, rating: 4.5, image: "https://via.placeholder.com/300x200" },
+    { title: "Hadith Gems", category: "Hadith", downloads: 98, rating: 4.7, image: "https://via.placeholder.com/300x200" },
+    { title: "40 Hadiths for Youth", category: "Hadith", downloads: 72, rating: 4.3, image: "https://via.placeholder.com/300x200" },
+    { title: "Stories of the Prophets", category: "History", downloads: 150, rating: 4.8, image: "https://via.placeholder.com/300x200" },
+    { title: "Islamic Golden Age", category: "History", downloads: 132, rating: 4.4, image: "https://via.placeholder.com/300x200" },
+    { title: "Children's Book of Manners", category: "Children", downloads: 200, rating: 4.9, image: "https://via.placeholder.com/300x200" },
+    { title: "Learning Wudu for Kids", category: "Children", downloads: 170, rating: 4.7, image: "https://via.placeholder.com/300x200" }
+  ];
+
+  const perPage = 6;
+  let currentPage = 1;
+  let filteredBooks = books;
+
+  function renderBooks() {
+    const grid = document.getElementById("bookGrid");
+    grid.innerHTML = "";
+    const start = (currentPage - 1) * perPage;
+    const end = start + perPage;
+    const visibleBooks = filteredBooks.slice(start, end);
+
+    visibleBooks.forEach(book => {
+      grid.innerHTML += `
+        <div class="bg-white/95 text-black p-6 rounded-2xl shadow-lg border border-yellow-100 hover:shadow-2xl transition">
+          <img src="${book.image}" alt="Book Cover" class="rounded-xl w-full h-48 object-cover mb-4">
+          <h3 class="text-xl font-bold text-[#44250c]">${book.title}</h3>
+          <p class="text-sm text-[#6b4423]">${book.category}</p>
+          <div class="flex justify-between mt-3 text-sm text-[#5c3d26]">
+            <span>📥 ${book.downloads} Downloads</span>
+            <span>⭐ ${book.rating}</span>
+          </div>
+          <div class="flex justify-between mt-4 gap-2">
+            <button class="flex-1 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-xl transition">Download</button>
+            <button onclick='openModal(${JSON.stringify(book)})' class="text-sm text-[#6b4423] hover:text-black px-4 py-2 bg-yellow-100 rounded-xl transition">Quick View</button>
+          </div>
+        </div>
+      `;
+    });
+    renderPagination();
+  }
+
+  function renderPagination() {
+    const pagination = document.querySelector(".pagination");
+    const totalPages = Math.ceil(filteredBooks.length / perPage);
+    pagination.innerHTML = "";
+
+    if (currentPage > 1) pagination.innerHTML += `<button onclick="changePage(${currentPage - 1})" class="px-4 py-2 bg-white border rounded">Prev</button>`;
+    for (let i = 1; i <= totalPages; i++) {
+      pagination.innerHTML += `<button onclick="changePage(${i})" class="px-4 py-2 ${i === currentPage ? 'bg-yellow-400 text-black font-semibold' : 'bg-white border text-[#44250c]'} rounded">${i}</button>`;
+    }
+    if (currentPage < totalPages) pagination.innerHTML += `<button onclick="changePage(${currentPage + 1})" class="px-4 py-2 bg-white border rounded">Next</button>`;
+  }
+
+  function changePage(page) {
+    currentPage = page;
+    renderBooks();
+  }
+
+  function openModal(book) {
+    document.getElementById("modalBookTitle").textContent = book.title;
+    document.getElementById("modalBookCategory").textContent = book.category;
+    document.getElementById("modalBookDownloads").textContent = `📥 ${book.downloads} Downloads`;
+    document.getElementById("modalBookRating").textContent = `⭐ ${book.rating}`;
+    document.getElementById("modalBookImage").src = book.image;
+    document.getElementById("previewModal").classList.remove("hidden");
+  }
+
+  function closeModal() {
+    document.getElementById("previewModal").classList.add("hidden");
+  }
+
+  document.getElementById("categoryFilter").addEventListener("change", function () {
+    const value = this.value;
+    currentPage = 1;
+    filteredBooks = value === "All Categories" ? books : books.filter(book => book.category.includes(value));
+    renderBooks();
+  });
+
+  document.getElementById("bookSearch").addEventListener("input", function () {
+    const query = this.value.toLowerCase();
+    const box = document.getElementById("searchSuggestions");
+    box.innerHTML = "";
+    if (query.length > 1) {
+      const matches = books.filter(b => b.title.toLowerCase().includes(query));
+      matches.forEach(b => {
+        const li = document.createElement("li");
+        li.className = "px-4 py-2 hover:bg-yellow-100 cursor-pointer";
+        li.textContent = b.title;
+        li.onclick = () => {
+          this.value = b.title;
+          box.classList.add("hidden");
+          filteredBooks = [b];
+          renderBooks();
+        };
+        box.appendChild(li);
+      });
+      box.classList.remove("hidden");
+    } else {
+      box.classList.add("hidden");
+      filteredBooks = books;
+      renderBooks();
+    }
+  });
+
+  window.onload = renderBooks;
+</script>
+</body>
+</html>
